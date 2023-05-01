@@ -42,7 +42,7 @@ class ProductServiceApplicationTests {
 	@Test
 	void shouldCreateProduct() throws Exception {
 		String createProductPayload = objectMapper.writeValueAsString(getCreateProductPayload());
-		mockMvc.perform(MockMvcRequestBuilders.post("/api/product")
+		mockMvc.perform(MockMvcRequestBuilders.post("/api/products")
 				.contentType(String.valueOf(MediaType.APPLICATION_JSON))
 				.content(createProductPayload))
 				.andExpect(status().isCreated());
@@ -52,7 +52,7 @@ class ProductServiceApplicationTests {
 
 	@Test
 	void shouldGetAllProducts() throws Exception {
-		mockMvc.perform(MockMvcRequestBuilders.get("/api/product")
+		mockMvc.perform(MockMvcRequestBuilders.get("/api/products")
 						.contentType(String.valueOf(MediaType.APPLICATION_JSON)))
 						.andExpect(status().isOk());
 	}
