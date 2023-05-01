@@ -50,6 +50,13 @@ class ProductServiceApplicationTests {
 		Assertions.assertEquals(1, productRepository.findAll().size());
 	}
 
+	@Test
+	void shouldGetAllProducts() throws Exception {
+		mockMvc.perform(MockMvcRequestBuilders.get("/api/product")
+						.contentType(String.valueOf(MediaType.APPLICATION_JSON)))
+						.andExpect(status().isOk());
+	}
+
 	private ProductRequest getCreateProductPayload() {
 		return ProductRequest.builder()
 				.name("IPhone 14")
