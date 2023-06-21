@@ -17,3 +17,13 @@ For running integration tests, test containers are used.
 3. Run `docker compose up -d` in root directory of application where `docker-compose.yml` is placed. It will start Kafka broker. 
 4. Start discovery service first
 5. Start remaining services
+
+# Troubleshooting
+1. If you encounter error
+   ```error getting credentials - err: exit status 1, out: `error getting credentials - err: exit status 1, out: `no usernames for https://index.docker.io/v1/```
+   Run below commands:
+   ```
+   service docker stop
+   rm ~/.docker/config.json
+   service docker start
+   ```
